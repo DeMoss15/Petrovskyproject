@@ -35,13 +35,21 @@ class SchedulesRecyclerViewAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+        if (list[position].date.compareTo(selectedDate) == 0){
+            val d = ContextCompat.getDrawable(context, R.drawable.selected_list_item_background)
+            holder.rootView.background = d
+        } else {
+            holder.rootView.setBackgroundColor(Color.TRANSPARENT)
+        }
+
         holder.item = list[position]
-        holder.dateView.text = simpleDateFormat.format(list[position].date.time)
-        holder.brigade1.text = list[position].brigade1
-        holder.brigade2.text = list[position].brigade2
-        holder.brigade3.text = list[position].brigade3
-        holder.brigade4.text = list[position].brigade4
-        holder.rootView.setOnClickListener { listener.onFragmentInteraction(list[position].date) }
+        holder.dateView.text = simpleDateFormat.format(holder.item!!.date.time)
+        holder.brigade1.text = holder.item!!.brigade1
+        holder.brigade2.text = holder.item!!.brigade2
+        holder.brigade3.text = holder.item!!.brigade3
+        holder.brigade4.text = holder.item!!.brigade4
+        holder.rootView.setOnClickListener { listener.onFragmentInteraction(holder.item!!.date) }
+
         if (list[position].date.compareTo(selectedDate) == 0){
             val d = ContextCompat.getDrawable(context, R.drawable.selected_list_item_background)
             holder.rootView.background = d

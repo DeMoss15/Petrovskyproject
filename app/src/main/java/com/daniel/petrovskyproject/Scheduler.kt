@@ -59,15 +59,33 @@ class Scheduler {
         return list
     }
 
-    fun getPrevious(date: Calendar): ArrayList<DaySchedule> {
-        TODO()
+    fun getBackward(date: Calendar): ArrayList<DaySchedule> {
+        date.add(Calendar.DAY_OF_MONTH, -11)
+        val list = ArrayList<DaySchedule>()
+        var shift = startingPointShift
+        shift += daysBetween(startingPoint, date) % scheduleCycle.size
+
+        for (i in 0..10){
+            list.add(DaySchedule(
+                    date.clone() as Calendar,
+                    scheduleCycle[shift % scheduleCycle.size],
+                    scheduleCycle[(shift + 4) % scheduleCycle.size],
+                    scheduleCycle[(shift + 12) % scheduleCycle.size],
+                    scheduleCycle[(shift + 8) % scheduleCycle.size]
+            ))
+
+            date.add(Calendar.DAY_OF_MONTH, 1)
+            shift = (shift + 1) % scheduleCycle.size
+        }
+
+        return list
     }
 
     private fun daysBetween(day1: Calendar, day2: Calendar): Int {
         var dayOne = day1.clone() as Calendar
         var dayTwo = day2.clone() as Calendar
 
-        if (dayOne.get(Calendar.YEAR) === dayTwo.get(Calendar.YEAR)) {
+        if (dayOne.get(Calendar.YEAR) == dayTwo.get(Calendar.YEAR)) {
             return Math.abs(dayOne.get(Calendar.DAY_OF_YEAR) - dayTwo.get(Calendar.DAY_OF_YEAR))
         } else {
             if (dayTwo.get(Calendar.YEAR) > dayOne.get(Calendar.YEAR)) {
