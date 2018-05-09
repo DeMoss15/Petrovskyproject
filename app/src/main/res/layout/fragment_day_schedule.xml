@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_day_schedule_constraint_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_day_schedule_constraint_schedule_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/fragment_day_schedule_text_view_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:text="99.99.9999"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_day_schedule_text_view_brigade1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_day_schedule_text_view_brigade1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="I"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_day_schedule_text_view_date"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_day_schedule_text_view_brigade2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/fragment_day_schedule_text_view_date"
+            app:layout_constraintTop_toTopOf="@+id/fragment_day_schedule_text_view_date" />
+
+        <TextView
+            android:id="@+id/fragment_day_schedule_text_view_brigade2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="II"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_day_schedule_text_view_brigade1"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_day_schedule_text_view_brigade3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/fragment_day_schedule_text_view_brigade1"
+            app:layout_constraintTop_toTopOf="@+id/fragment_day_schedule_text_view_brigade1" />
+
+        <TextView
+            android:id="@+id/fragment_day_schedule_text_view_brigade3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="III"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_day_schedule_text_view_brigade2"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_day_schedule_text_view_brigade4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/fragment_day_schedule_text_view_brigade2"
+            app:layout_constraintTop_toTopOf="@+id/fragment_day_schedule_text_view_brigade2" />
+
+        <TextView
+            android:id="@+id/fragment_day_schedule_text_view_brigade4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical"
+            android:text="IV"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_day_schedule_text_view_brigade3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/fragment_day_schedule_text_view_brigade3"
+            app:layout_constraintTop_toTopOf="@+id/fragment_day_schedule_text_view_brigade3" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
