@@ -34,16 +34,21 @@ class MainActivity : AppCompatActivity(),
         activity_main_recycler_view.addOnScrollListener(object: RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
+                Log.i("Recycler", "scrolled $dy")
                 if (dy > 0){// Recycle view scrolling downwards...
 
                     if (!recyclerView?.canScrollVertically(RecyclerView.FOCUS_DOWN)!!){// can't scroll more
+                        Log.i("Recycler", "bottom lock")
                         if(itShouldLoadMore){
+                            Log.i("Recycler", "load forward")
                             loadMoreForward()
                         }
                     }
-                } else if (dy < 0){
+                } else {
                     if (!recyclerView?.canScrollVertically(RecyclerView.FOCUS_UP)!!){// can't scroll more
+                        Log.i("Recycler", "top lock")
                         if(itShouldLoadMore){
+                            Log.i("Recycler", "load backward")
                             loadMoreBackward()
                         }
                     }
@@ -103,23 +108,19 @@ class MainActivity : AppCompatActivity(),
 
     private fun loadMoreForward() {
         itShouldLoadMore = false
-        activity_main_progress_bar.visibility = View.VISIBLE
         recyclerModels.addAll(
                 Scheduler().getForward(recyclerModels[recyclerModels.size - 1].date.clone() as Calendar)
         )
         recyclerViewAdapter.notifyDataSetChanged()
-        activity_main_progress_bar.visibility = View.GONE
         itShouldLoadMore = true
     }
 
     private fun loadMoreBackward() {
         itShouldLoadMore = false
-        activity_main_progress_bar.visibility = View.VISIBLE
         recyclerModels.addAll(0,
                 Scheduler().getBackward(recyclerModels[0].date.clone() as Calendar)
         )
         recyclerViewAdapter.notifyDataSetChanged()
-        activity_main_progress_bar.visibility = View.GONE
         itShouldLoadMore = true
     }
 }

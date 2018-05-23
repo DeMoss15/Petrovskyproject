@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Петровка</string>
+    <string name="add_widget">Добавить виджет</string>
+    <string name="today">Сегодня</string>
+    <string name="string_ic_question_mark">знак вопроса</string>
+    <string name="date">Дата</string>
+    <string name="button_back">Назад</string>
+    <string name="useful_tip">Посказка:</string>
+    <string name="tip">Нажмите на расписание чтобы выбрать дату</string>
+    <string name="terminology">Условные обозначения:</string>
+    <string name="weekend_free">выходной</string>
+    <string name="callback_and_copyright">Обратная связь:</string>
+</resources>

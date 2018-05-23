@@ -40,13 +40,26 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                      <entry key="foregroundImage">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="scalingPercent" value="50" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                     </map>
                                   </option>
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="ffffff" />
-                                      <entry key="foregroundAssetType" value="CLIP_ART" />
+                                      <entry key="backgroundColor" value="283593" />
+                                      <entry key="foregroundImage" value="C:\Users\Daniel\Desktop\ic_factory_white_48dp.png" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
+                                      <entry key="webIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>

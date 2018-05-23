@@ -16,6 +16,20 @@ class Scheduler {
         startingPoint.set(2017, 0, 1)
     }
 
+    fun getToday(): DaySchedule {
+        val date = GregorianCalendar()
+        var shift = startingPointShift
+        shift += daysBetween(startingPoint, date) % scheduleCycle.size
+
+        return DaySchedule(
+                date.clone() as Calendar,
+                scheduleCycle[shift % scheduleCycle.size],
+                scheduleCycle[(shift + 4) % scheduleCycle.size],
+                scheduleCycle[(shift + 12) % scheduleCycle.size],
+                scheduleCycle[(shift + 8) % scheduleCycle.size]
+        )
+    }
+
     fun setDate(date: Calendar): ArrayList<DaySchedule> {
         date.add(Calendar.DAY_OF_MONTH, -8)
         val list = ArrayList<DaySchedule>()

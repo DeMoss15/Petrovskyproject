@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Petrovsky project</string>
+    <string name="add_widget">Add widget</string>
+    <string name="today">Today</string>
+    <string name="string_ic_question_mark">question mark</string>
+    <string name="date">Date</string>
+    <string name="brigade1_mark" translatable="false">I</string>
+    <string name="brigade2_mark" translatable="false">II</string>
+    <string name="brigade3_mark" translatable="false">III</string>
+    <string name="brigade4_mark" translatable="false">IV</string>
+    <string name="button_back">Back</string>
+    <string name="useful_tip">Useful tip:</string>
+    <string name="tip">Tap on sheduler to pick date you need</string>
+    <string name="terminology">Terminology:</string>
+    <string name="weekend_free">free</string>
+    <string name="callback_and_copyright">Callback and copyright:</string>
+    <string name="email" translatable="false">mossur15@gmail.com</string>
+    <string name="copyright" translatable="false">© DeMoss15</string>
+    <string name="app_name">Petrovsky factory</string>
 </resources>
