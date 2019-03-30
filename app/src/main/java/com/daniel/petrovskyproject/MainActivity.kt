@@ -1,16 +1,15 @@
 package com.daniel.petrovskyproject
 
-import kotlinx.android.synthetic.main.activity_main.*
-
 import android.app.DatePickerDialog
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.DatePicker
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity(),
@@ -38,18 +37,8 @@ class MainActivity : AppCompatActivity(),
                 if (dy > 0){// Recycle view scrolling downwards...
 
                     if (!recyclerView?.canScrollVertically(RecyclerView.FOCUS_DOWN)!!){// can't scroll more
-                        Log.i("Recycler", "bottom lock")
                         if(itShouldLoadMore){
-                            Log.i("Recycler", "load forward")
                             loadMoreForward()
-                        }
-                    }
-                } else {
-                    if (!recyclerView?.canScrollVertically(RecyclerView.FOCUS_UP)!!){// can't scroll more
-                        Log.i("Recycler", "top lock")
-                        if(itShouldLoadMore){
-                            Log.i("Recycler", "load backward")
-                            loadMoreBackward()
                         }
                     }
                 }
@@ -110,15 +99,6 @@ class MainActivity : AppCompatActivity(),
         itShouldLoadMore = false
         recyclerModels.addAll(
                 Scheduler().getForward(recyclerModels[recyclerModels.size - 1].date.clone() as Calendar)
-        )
-        recyclerViewAdapter.notifyDataSetChanged()
-        itShouldLoadMore = true
-    }
-
-    private fun loadMoreBackward() {
-        itShouldLoadMore = false
-        recyclerModels.addAll(0,
-                Scheduler().getBackward(recyclerModels[0].date.clone() as Calendar)
         )
         recyclerViewAdapter.notifyDataSetChanged()
         itShouldLoadMore = true

@@ -1,14 +1,12 @@
 package com.daniel.petrovskyproject
 
+import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
+import android.content.Intent
 import android.widget.RemoteViews
 import java.text.SimpleDateFormat
-import android.app.AlarmManager
-import java.util.*
-import android.app.PendingIntent
-import android.content.Intent
 
 
 /**
@@ -40,17 +38,6 @@ class TodayScheduleAppWidget : AppWidgetProvider() {
 
         internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager,
                                      appWidgetId: Int) {
-
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            val intent = Intent(context, AlarmBroadcastReceiver::class.java)
-            intent.putExtra("ids", ids)
-            val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
-
-            val current = Calendar.getInstance()
-            val nexMin = current.clone() as Calendar
-            nexMin.add(Calendar.DAY_OF_MONTH, 1)
-
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, nexMin.getTimeInMillis() - current.getTimeInMillis(), 8640000, pendingIntent)
 
             val today = Scheduler().getToday()
             // Construct the RemoteViews object

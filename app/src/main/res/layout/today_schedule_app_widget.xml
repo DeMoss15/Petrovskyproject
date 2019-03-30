@@ -1,6 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_linear_layout_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,6 +17,7 @@
         android:layout_weight="1"
         android:text="dd/MM/yyyy"
         android:textAlignment="center"
+        android:textColor="@color/ic_launcher_background"
         android:textSize="24sp" />
 
     <TextView
@@ -29,6 +28,7 @@
         android:layout_weight="1"
         android:text="0"
         android:textAlignment="center"
+        android:textColor="@color/ic_launcher_background"
         android:textSize="24sp" />
 
     <TextView
@@ -39,6 +39,7 @@
         android:layout_weight="1"
         android:text="1"
         android:textAlignment="center"
+        android:textColor="@color/ic_launcher_background"
         android:textSize="24sp" />
 
     <TextView
@@ -49,6 +50,7 @@
         android:layout_weight="1"
         android:text="2"
         android:textAlignment="center"
+        android:textColor="@color/ic_launcher_background"
         android:textSize="24sp" />
 
     <TextView
@@ -60,5 +62,6 @@
         android:layout_weight="1"
         android:text="3"
         android:textAlignment="center"
+        android:textColor="@color/ic_launcher_background"
         android:textSize="24sp" />
 </LinearLayout>

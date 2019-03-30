@@ -18,16 +18,7 @@ class Scheduler {
 
     fun getToday(): DaySchedule {
         val date = GregorianCalendar()
-        var shift = startingPointShift
-        shift += daysBetween(startingPoint, date) % scheduleCycle.size
-
-        return DaySchedule(
-                date.clone() as Calendar,
-                scheduleCycle[shift % scheduleCycle.size],
-                scheduleCycle[(shift + 4) % scheduleCycle.size],
-                scheduleCycle[(shift + 12) % scheduleCycle.size],
-                scheduleCycle[(shift + 8) % scheduleCycle.size]
-        )
+        return getDaySchedule(date, startingPointShift + daysBetween(startingPoint, date) % scheduleCycle.size)
     }
 
     fun setDate(date: Calendar): ArrayList<DaySchedule> {
@@ -36,14 +27,8 @@ class Scheduler {
         var shift = startingPointShift
         shift += daysBetween(startingPoint, date) % scheduleCycle.size
 
-        for (i in 0..16){
-            list.add(DaySchedule(
-                    date.clone() as Calendar,
-                    scheduleCycle[shift % scheduleCycle.size],
-                    scheduleCycle[(shift + 4) % scheduleCycle.size],
-                    scheduleCycle[(shift + 12) % scheduleCycle.size],
-                    scheduleCycle[(shift + 8) % scheduleCycle.size]
-                    ))
+        for (i in 0..20){
+            list.add(getDaySchedule(date.clone() as Calendar, shift))
 
             date.add(Calendar.DAY_OF_MONTH, 1)
             shift = (shift + 1) % scheduleCycle.size
@@ -54,17 +39,12 @@ class Scheduler {
 
     fun getForward(date: Calendar): ArrayList<DaySchedule> {
         val list = ArrayList<DaySchedule>()
+        date.add(Calendar.DAY_OF_MONTH, 1)
         var shift = startingPointShift
         shift += daysBetween(startingPoint, date) % scheduleCycle.size
 
         for (i in 0..10){
-            list.add(DaySchedule(
-                    date.clone() as Calendar,
-                    scheduleCycle[shift % scheduleCycle.size],
-                    scheduleCycle[(shift + 4) % scheduleCycle.size],
-                    scheduleCycle[(shift + 12) % scheduleCycle.size],
-                    scheduleCycle[(shift + 8) % scheduleCycle.size]
-            ))
+            list.add(getDaySchedule(date.clone() as Calendar, shift))
 
             date.add(Calendar.DAY_OF_MONTH, 1)
             shift = (shift + 1) % scheduleCycle.size
@@ -73,26 +53,15 @@ class Scheduler {
         return list
     }
 
-    fun getBackward(date: Calendar): ArrayList<DaySchedule> {
-        date.add(Calendar.DAY_OF_MONTH, -11)
-        val list = ArrayList<DaySchedule>()
-        var shift = startingPointShift
-        shift += daysBetween(startingPoint, date) % scheduleCycle.size
-
-        for (i in 0..10){
-            list.add(DaySchedule(
-                    date.clone() as Calendar,
-                    scheduleCycle[shift % scheduleCycle.size],
-                    scheduleCycle[(shift + 4) % scheduleCycle.size],
-                    scheduleCycle[(shift + 12) % scheduleCycle.size],
-                    scheduleCycle[(shift + 8) % scheduleCycle.size]
-            ))
-
-            date.add(Calendar.DAY_OF_MONTH, 1)
-            shift = (shift + 1) % scheduleCycle.size
-        }
-
-        return list
+    // Utils ***************************************************************************************
+    private fun getDaySchedule(date: Calendar, shift: Int): DaySchedule{
+        return DaySchedule(
+                date.clone() as Calendar,
+                scheduleCycle[shift % scheduleCycle.size],
+                scheduleCycle[(shift + 4) % scheduleCycle.size],
+                scheduleCycle[(shift + 12) % scheduleCycle.size],
+                scheduleCycle[(shift + 8) % scheduleCycle.size]
+        )
     }
 
     private fun daysBetween(day1: Calendar, day2: Calendar): Int {
